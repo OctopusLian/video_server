@@ -1,8 +1,14 @@
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-05-05 22:09:05
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-05-05 22:11:12
+ */
 package taskrunner
 
 import (
 	"time"
-	//"log"
 )
 
 type Worker struct {
@@ -11,7 +17,7 @@ type Worker struct {
 }
 
 func NewWorker(interval time.Duration, r *Runner) *Worker {
-	return &Worker {
+	return &Worker{
 		ticker: time.NewTicker(interval * time.Second),
 		runner: r,
 	}
@@ -20,7 +26,7 @@ func NewWorker(interval time.Duration, r *Runner) *Worker {
 func (w *Worker) startWorker() {
 	for {
 		select {
-		case <- w.ticker.C:
+		case <-w.ticker.C:
 			go w.runner.StartAll()
 		}
 	}
@@ -32,5 +38,3 @@ func Start() {
 	w := NewWorker(3, r)
 	go w.startWorker()
 }
-
-

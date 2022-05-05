@@ -1,15 +1,21 @@
-package main 
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-05-05 22:09:05
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-05-05 22:12:01
+ */
+package main
 
 import (
 	"net/http"
-	"github.com/avenssi/video_server/api/session"
-	"github.com/avenssi/video_server/api/defs"
+	"video_server/api/session"
 
+	"video_server/api/defs"
 )
 
 var HEADER_FIELD_SESSION = "X-Session-Id"
 var HEADER_FIELD_UNAME = "X-User-Name"
-
 
 func validateUserSession(r *http.Request) bool {
 	sid := r.Header.Get(HEADER_FIELD_SESSION)
@@ -35,4 +41,3 @@ func ValidateUser(w http.ResponseWriter, r *http.Request) bool {
 
 	return true
 }
-

@@ -1,7 +1,15 @@
-package main 
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-05-05 22:09:05
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-05-05 22:14:34
+ */
+package main
 
 import (
 	"net/http"
+
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -24,11 +32,8 @@ func (m middleWareHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func RegisterHandlers() *httprouter.Router {
 	router := httprouter.New()
-
-	router.POST("/user", CreateUser)
-
-	router.POST("/user/:user_name", Login)
-
+	router.POST("/user", CreateUser) //创建用户
+	router.POST("/user/:user_name", Login)  //用户登录
 	return router
 }
 
@@ -37,4 +42,3 @@ func main() {
 	mh := NewMiddleWareHandler(r)
 	http.ListenAndServe(":8000", mh)
 }
-

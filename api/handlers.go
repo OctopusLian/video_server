@@ -1,14 +1,22 @@
-package main 
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-05-05 22:09:05
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-05-05 22:12:14
+ */
+package main
 
 import (
-	"io"
 	"encoding/json"
-	"net/http"
+	"io"
 	"io/ioutil"
+	"net/http"
+	"video_server/api/defs"
+
+	"video_server/api/dbops"
+	"video_server/api/session"
 	"github.com/julienschmidt/httprouter"
-	"github.com/avenssi/video_server/api/defs"
-	"github.com/avenssi/video_server/api/dbops"
-	"github.com/avenssi/video_server/api/session"
 )
 
 func CreateUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {

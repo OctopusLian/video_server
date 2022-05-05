@@ -1,10 +1,17 @@
-package main 
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-05-05 22:09:05
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-05-05 22:12:31
+ */
+package main
 
 import (
-	"io"
 	"encoding/json"
+	"io"
 	"net/http"
-	"github.com/avenssi/video_server/api/defs"
+	"video_server/api/defs"
 )
 
 func sendErrorResponse(w http.ResponseWriter, errResp defs.ErrResponse) {

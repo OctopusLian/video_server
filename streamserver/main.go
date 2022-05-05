@@ -1,7 +1,15 @@
-package main 
+/*
+ * @Description:
+ * @Author: neozhang
+ * @Date: 2022-05-05 22:09:05
+ * @LastEditors: neozhang
+ * @LastEditTime: 2022-05-05 22:15:15
+ */
+package main
 
 import (
 	"net/http"
+
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -19,11 +27,8 @@ func NewMiddleWareHandler(r *httprouter.Router, cc int) http.Handler {
 
 func RegisterHandlers() *httprouter.Router {
 	router := httprouter.New()
-
-	router.GET("/videos/:vid-id", streamHandler)
-
-	router.POST("/upload/:vid-id", uploadHandler)
-
+	router.GET("/videos/:vid-id", streamHandler)  //获取视频
+	router.POST("/upload/:vid-id", uploadHandler)  //上传视频
 	router.GET("/testpage", testPageHandler)
 
 	return router
